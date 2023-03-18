@@ -83,16 +83,33 @@
         }
 
         .mybtn>button {
-          margin-right: 10px; 
+            margin-right: 10px;
         }
     </style>
+    <script>
+        $(document).ready(function () {
+            fetch("http://spartacodingclub.shop/sparta_api/weather/seoul").then(res => res.json()).then(data => {
+               
+                console.log(data)
+
+                let number = data['temp']
+               
+                $('#temp').text(number)
+
+
+            })
+        })
+
+
+    </script>
 
 </head>
 
 <body>
     <div class="mytitle">
         <h1>내 생애 최고의 영화들</h1>
-        <button>영화기록하기</button>
+        <div>현재 서울의 날씨 : <span id="temp">20</span>도</div>
+        <button onclick="hey()">영화기록하기</button> <!-- 버튼을 클릭하면 hey라는 정해진 일을 하라 -->
     </div>
     <div class="mypost">
         <div class="form-floating mb-3">
@@ -102,12 +119,12 @@
         <div class="input-group mb-3">
             <label class="input-group-text" for="inputGroupSelect01">별점</label>
             <select class="form-select" id="inputGroupSelect01">
-              <option selected>선택하기...</option>
-              <option value="1">⭐</option>
-              <option value="2">⭐⭐</option>
-              <option value="3">⭐⭐⭐</option>
+                <option selected>선택하기...</option>
+                <option value="1">⭐</option>
+                <option value="2">⭐⭐</option>
+                <option value="3">⭐⭐⭐</option>
             </select>
-          </div>
+        </div>
 
         <div class="form-floating">
             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
@@ -128,7 +145,10 @@
                     <div class="card-body">
                         <h5 class="card-title">Everything Everywhere All at Once</h5>
                         <p class="card-text">
-                            제목 '에브리씽 에브리웨어 올 앳 원스'(줄여서 에에올, 에에원, 에올원 등으로도 불린다)를 직역하면 "모든 것, 모든 곳, 한꺼번에"로, 영화 대사이자 영화의 각 파트 제목이기도 하다. 영화에 등장하는 문구를 따라 '천마행공'(天馬行空)으로도 불린다. 이 '천마행공'을 직역하면 '천마가 하늘을 날아다닌다'는 뜻으로, 천마가 하늘을 자유롭게 날아다니듯 (사람의 잠재력 또는 상상력이 발현되어) 그 재주가 비상함을 이르는 말이다. 마침 영화 내에서 주인공이 딸을 구하는 과정이 '멀티버스를 이용한 잠재력 발휘'인지라 적절한 작명이기도 하다.</p>
+                            제목 '에브리씽 에브리웨어 올 앳 원스'(줄여서 에에올, 에에원, 에올원 등으로도 불린다)를 직역하면 "모든 것, 모든 곳, 한꺼번에"로, 영화 대사이자 영화의 각
+                            파트 제목이기도 하다. 영화에 등장하는 문구를 따라 '천마행공'(天馬行空)으로도 불린다. 이 '천마행공'을 직역하면 '천마가 하늘을 날아다닌다'는 뜻으로, 천마가
+                            하늘을 자유롭게 날아다니듯 (사람의 잠재력 또는 상상력이 발현되어) 그 재주가 비상함을 이르는 말이다. 마침 영화 내에서 주인공이 딸을 구하는 과정이 '멀티버스를
+                            이용한 잠재력 발휘'인지라 적절한 작명이기도 하다.</p>
                         <p>⭐⭐⭐</p>
                         <p class="comment">영화감상평</p>
                     </div>
@@ -145,7 +165,8 @@
                         <p class="comment">영화감상평</p>
                     </div>
                 </div>
-            </div><div class="col">
+            </div>
+            <div class="col">
                 <div class="card h-100">
                     <img src="https://upload.wikimedia.org/wikipedia/en/1/1e/Everything_Everywhere_All_at_Once.jpg"
                         class="card-img-top" alt="...">
@@ -156,7 +177,8 @@
                         <p class="comment">영화감상평</p>
                     </div>
                 </div>
-            </div><div class="col">
+            </div>
+            <div class="col">
                 <div class="card h-100">
                     <img src="https://upload.wikimedia.org/wikipedia/en/1/1e/Everything_Everywhere_All_at_Once.jpg"
                         class="card-img-top" alt="...">
